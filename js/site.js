@@ -7,6 +7,25 @@
   put("[data-education]", cfg.education);
   put("[data-location]", cfg.location);
   put("[data-hours]", cfg.hours);
+  document.querySelectorAll("[data-location-link]").forEach((link) => {
+    if (cfg.locationUrl) {
+      link.href = cfg.locationUrl;
+      link.hidden = false;
+      link.nextElementSibling.hidden = true;
+    }
+  });
+  document.querySelectorAll("[data-facebook-link]").forEach((link) => {
+    if (cfg.facebookUrl) {
+      link.href = cfg.facebookUrl;
+      link.hidden = false;
+    }
+  });
+  document.querySelectorAll("[data-phone-link]").forEach((link) => {
+    if (cfg.phoneNumber) {
+      link.href = `tel:${cfg.phoneNumber}`;
+      link.hidden = false;
+    }
+  });
   document.title = `${cfg.doctorName || "Consulta médica"} | ${cfg.specialty || "Atención médica"}`;
   document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -21,8 +40,18 @@
     row.append(number, title, description, arrow); list.append(row);
   });
 
-  const calendar = document.getElementById("calendar-booking");
-  if (cfg.googleBookingUrl) { calendar.href = cfg.googleBookingUrl; calendar.hidden = false; calendar.target = "_blank"; calendar.rel = "noopener noreferrer"; }
+  const bookingUrls = cfg.googleBookingUrls || {};
+  const bookingOptions = document.getElementById("calendar-booking-options");
+  [[30, "calendar-booking-30"], [60, "calendar-booking-60"]].forEach(([minutes, id]) => {
+    const link = document.getElementById(id);
+    if (bookingUrls[minutes]) {
+      link.href = bookingUrls[minutes];
+      link.hidden = false;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      bookingOptions.hidden = false;
+    }
+  });
 
   const form = document.getElementById("booking-form");
   const submitButton = form.querySelector('button[type="submit"]');
