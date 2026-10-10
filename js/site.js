@@ -14,6 +14,12 @@
       link.nextElementSibling.hidden = true;
     }
   });
+  document.querySelectorAll("[data-facebook-link]").forEach((link) => {
+    if (cfg.facebookUrl) {
+      link.href = cfg.facebookUrl;
+      link.hidden = false;
+    }
+  });
   document.title = `${cfg.doctorName || "Consulta médica"} | ${cfg.specialty || "Atención médica"}`;
   document.getElementById("year").textContent = new Date().getFullYear();
 
