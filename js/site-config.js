@@ -4,10 +4,14 @@ window.CLINIC_SITE = {
   doctorName: "Dra. Nombre Apellido",
   specialty: "Ginecología",
   education: "Información profesional por agregar",
-  location: "Ubicación por confirmar",
-  hours: "Horario de consulta por confirmar",
+  location: "Consulta presencial",
+  locationUrl: "https://maps.app.goo.gl/6HxqBgd3qN18GPEb9",
+  hours: "Martes a sábado, de 7:00 a. m. a 9:00 a. m.",
   whatsappNumber: "", // International digits only, e.g. 50370000000
-  googleBookingUrl: "", // Public Google Calendar appointment schedule link
+  googleBookingUrls: {
+    30: "", // URL pública de la agenda de 30 minutos
+    60: ""  // URL pública de la agenda de 60 minutos
+  },
   services: [
     { name: "Consulta ginecológica", description: "Escríbele al equipo para conocer disponibilidad y detalles de atención." },
     { name: "Consulta de seguimiento", description: "Consulta con la doctora para coordinar una cita de seguimiento." },
