@@ -6,15 +6,24 @@ datos personales ni información clínica en el servidor.
 
 import os
 import re
-from datetime import date, time
+from datetime import date, time, datetime, timezone, timedelta
 from urllib.parse import quote
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 load_dotenv()
+
+CLINIC_TIMEZONE = timezone(timedelta(hours=-6))
+APPOINTMENT_DAYS = (1, 2, 3, 4, 5)  # Python: martes a sábado.
+OPENING_TIME = time(7)
+CLOSING_TIME = time(9)
+
+
+def clinic_now() -> datetime:
+    return datetime.now(CLINIC_TIMEZONE)
 
 
 def setting(key: str, default: str = "") -> str:
@@ -48,6 +57,12 @@ def clinic_data() -> dict:
         "googleBookingUrls": {
             "30": setting("GOOGLE_BOOKING_URL_30"),
             "60": setting("GOOGLE_BOOKING_URL_60"),
+        },
+        "appointmentSchedule": {
+            "weekdays": [(day + 1) % 7 for day in APPOINTMENT_DAYS],
+            "startTime": OPENING_TIME.strftime("%H:%M"),
+            "endTime": CLOSING_TIME.strftime("%H:%M"),
+            "timezone": "America/El_Salvador",
         },
         "services": [
             {
@@ -88,8 +103,29 @@ app.add_middleware(
 
 class AppointmentRequest(BaseModel):
     name: str = Field(min_length=2, max_length=80)
-    preferred_date: date | None = None
-    preferred_time: time | None = None
+    preferred_date: date
+    preferred_time: time
+
+    @field_validator("name", mode="before")
+    @classmethod
+    def trim_name(cls, value):
+        return value.strip() if isinstance(value, str) else value
+
+    @model_validator(mode="after")
+    def validate_schedule(self):
+        now = clinic_now()
+        if self.preferred_date < now.date():
+            raise ValueError("Elige una fecha de hoy en adelante.")
+        if self.preferred_date.weekday() not in APPOINTMENT_DAYS:
+            raise ValueError("Las citas regulares son de martes a sábado. Para otro día, usa la sección Coordinar otro horario.")
+        chosen_time = self.preferred_time
+        if chosen_time.tzinfo is not None or chosen_time.second or chosen_time.microsecond:
+            raise ValueError("Selecciona una hora local en horas y minutos.")
+        if not OPENING_TIME <= chosen_time <= CLOSING_TIME:
+            raise ValueError("El horario regular es de 7:00 a 9:00 a. m. Para otra hora, usa la sección Coordinar otro horario.")
+        if self.preferred_date == now.date() and chosen_time <= now.time().replace(tzinfo=None):
+            raise ValueError("Ese horario ya pasó. Elige una fecha y hora futuras.")
+        return self
 
 
 @app.get("/api/health")
