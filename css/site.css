@@ -2,3 +2,90 @@
 [hidden]{display:none!important}
 .button:disabled{opacity:.55;cursor:not-allowed;transform:none}
  [data-location-link],[data-facebook-link],[data-phone-link]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-size:12px}.calendar-booking-options>p{color:#61766e;font-size:11px;margin:14px 0 2px}
+
+/* NOVA FEMME visual direction: classic medical structure with a warm women’s-health palette. */
+:root{--ink:#352936;--ink-deep:#2b202a;--sage:#e9e3e7;--sage-light:#f7f2f4;--paper:#fffdfb;--cream:#f8eee8;--rose:#ecd3d2;--muted:#756a72;--line:#e8dfe2;--accent:#9b5b70;--white:#fff}
+body{background:var(--paper);color:var(--ink)}
+.topbar{height:78px;padding-inline:8%;background:rgba(255,253,251,.97);box-shadow:0 4px 22px rgba(53,41,54,.045);border-bottom:1px solid #eadfe3}
+.brand-mark{background:var(--accent);color:#fff}
+.brand-name{letter-spacing:.035em;color:var(--ink)}
+.nav{gap:34px}
+.nav a:not(.nav-cta){color:#655862}
+.nav-cta{background:var(--accent);border-color:var(--accent);color:#fff;padding:12px 20px}
+.nav-cta span{color:#f6e8ec}
+.hero{min-height:700px;padding:145px 8% 76px;grid-template-columns:1.08fr .92fr;gap:4%;background:linear-gradient(108deg,#fffdfb 0%,#fffdfb 47%,#f7edef 47%,#f7edef 100%)}
+.hero-copy{max-width:610px}
+.eyebrow{color:var(--accent);letter-spacing:.15em}
+.eyebrow-dot{background:var(--accent)}
+h1,h2{color:var(--ink);letter-spacing:-.045em}
+h1{font-size:clamp(50px,6.1vw,76px);max-width:600px}
+h1 em,h2 em{color:var(--accent)}
+.hero-intro{max-width:475px;color:#726671;font-size:16px}
+.button{border-radius:5px}
+.button-dark{background:var(--accent);color:#fff}
+.button-dark:hover{background:#81485c}
+.hero-note{color:#766a72;margin-top:34px}
+.note-icon{color:var(--accent)}
+.hero-art{height:480px;max-width:550px}
+.art-circle{height:min(390px,75vw);width:min(390px,75vw);background:radial-gradient(circle at 48% 43%,#fffaf8 0 34%,#f1dcdf 34.4% 64%,#e9d4d9 64.4%);box-shadow:0 20px 55px rgba(96,54,72,.13),inset -20px -24px 0 rgba(148,85,108,.08);color:var(--ink)}
+.art-circle:before{border-color:#c9a6b1}
+.art-cross{font-size:82px;color:var(--accent)}
+.art-caption{font-size:12px;letter-spacing:.16em;color:#55414e}
+.art-orbit{border-color:rgba(155,91,112,.25)}
+.art-leaf{background:#b68791}
+.art-stamp{border-color:#b36e7f;color:var(--accent);background:#fffdfb}
+.art-card{border-radius:6px;box-shadow:0 14px 34px rgba(73,48,63,.12);color:#5c4e58}
+.art-card b{color:var(--ink)}
+.card-spark{color:var(--accent)}
+.hero-bottom{left:8%;right:8%;color:#8a7b83}
+.scroll-line{background:#c4aab3}
+.trust-strip{display:flex;justify-content:center;align-items:center;gap:clamp(24px,6vw,90px);padding:22px 8%;background:#fff;border-bottom:1px solid var(--line);color:#665761;font-size:12px}
+.trust-strip span{display:flex;gap:10px;align-items:center;white-space:nowrap}
+.trust-strip b{color:var(--accent);font:700 10px var(--sans);letter-spacing:.08em}
+.intro-band{background:#f3e8eb;color:var(--ink);min-height:132px;padding:30px 8%;gap:35px}
+.intro-band p{font:500 clamp(18px,2vw,23px)/1.55 var(--display);max-width:760px}
+.band-symbol{color:var(--accent)}
+.section-wrap{padding:104px 10%}
+.section-kicker{color:var(--accent)}
+.profile{background:#fffdfb}
+.profile-grid{gap:10%;margin-top:32px}
+.profile-portrait{height:440px;border-radius:8px;background:#f0e4e4;overflow:hidden;box-shadow:12px 12px 0 #f6eef0}
+.portrait-placeholder{background:radial-gradient(ellipse at 50% 34%,#fffaf5 0 16%,transparent 16.5%),linear-gradient(145deg,#f4e8e5,#dfcbd2)}
+.portrait-sun{color:var(--accent)}
+.portrait-label{color:#725e68}
+.portrait-tag{right:-18px;border-radius:4px;background:var(--accent);color:white}
+.profile-copy{max-width:560px}
+.profile-lead{color:#726671}
+.profile-details>div{align-items:flex-start}
+.detail-icon{background:#f5e9ec;color:var(--accent);flex:none}
+.profile-details p{color:#70636c}
+.care-section{background:#f7f2f4}
+.care-section .section-wrap{padding-top:94px;padding-bottom:100px}
+.care-heading{margin:29px 0 31px;align-items:center}
+.care-heading p{color:#746872}
+.service-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border:0}
+.service-row{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:14px;min-height:230px;padding:26px 25px 34px;border:1px solid #eadfe3;border-radius:7px;background:#fff;box-shadow:0 8px 24px rgba(53,41,54,.035)}
+.service-number{font-size:10px;letter-spacing:.14em}
+.service-row h3{font-size:18px;color:var(--ink);line-height:1.35}
+.service-row p{font-size:12px;line-height:1.75;color:#746872}
+.service-arrow{position:absolute;right:23px;bottom:18px;color:var(--accent)}
+.service-note{color:#897c84;margin-top:22px}
+.booking{background:#fffdfb;padding-top:94px;padding-bottom:106px}
+.booking-grid{gap:10%;margin-top:26px}
+.booking-copy h2{margin:17px 0;color:var(--ink)}
+.booking-copy>p{color:#70646d}
+.booking-contact{margin-top:22px}
+.contact-icon{border-color:#e5d5dc;background:#faf3f5;color:var(--accent)}
+.booking-contact div{color:#756a72}
+.booking-contact b{color:var(--ink)}
+.booking-form{border:1px solid #efe5e8;border-radius:8px;padding:32px;background:#fff;box-shadow:0 18px 55px rgba(65,42,58,.09)}
+.form-title{color:var(--ink)}
+.booking-form input,.booking-form select{border-color:#e4d9de;border-radius:4px}
+.booking-form input:focus,.booking-form select:focus{outline-color:#bb8798}
+.privacy-note{color:#786d75}
+.button-calendar{border-color:var(--accent);color:var(--accent)}
+.footer{background:var(--ink-deep)}
+.footer .brand-mark{background:#f4e8eb;color:var(--accent)}
+.footer-cta span{color:#e8bdc9}
+@media(max-width:850px){.topbar{padding-inline:5%}.hero{padding-inline:6%;grid-template-columns:1fr .85fr;gap:2%}.hero-art{height:400px}.section-wrap{padding:80px 7%}.profile-portrait{height:380px}.trust-strip{gap:24px;padding-inline:5%}.service-list{gap:13px}.service-row{padding:22px 18px}}
+@media(max-width:650px){.topbar{height:70px}.nav{gap:18px}.hero{padding:115px 6% 62px;grid-template-columns:1fr;background:linear-gradient(160deg,#fffdfb 0%,#fffdfb 48%,#f7edef 48%,#f7edef 100%)}.hero h1{font-size:48px}.hero-art{height:330px;margin-top:0}.art-circle{height:275px;width:275px}.art-cross{font-size:66px}.art-caption{font-size:10px}.trust-strip{justify-content:flex-start;overflow-x:auto;gap:23px;padding:17px 6%;font-size:10px}.trust-strip span{white-space:nowrap}.intro-band{min-height:116px}.section-wrap{padding:68px 7%}.profile-grid{gap:34px}.profile-portrait{height:340px}.care-section .section-wrap{padding-top:68px;padding-bottom:72px}.care-heading{margin-top:25px}.service-list{grid-template-columns:1fr}.service-row{min-height:0;padding:22px 21px 39px}.booking{padding-top:68px;padding-bottom:75px}.booking-form{padding:23px 18px}.footer{padding:30px 7% 20px}}
