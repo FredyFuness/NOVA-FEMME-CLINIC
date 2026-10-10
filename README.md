@@ -1,34 +1,43 @@
 # NOVA FEMME CLINIC
 
-Sitio web estático en español para NOVA FEMME CLINIC, con una estructura médica clásica, contenido para salud de la mujer y vías directas para solicitar cita.
+Proyecto dividido en frontend React + Vite y backend FastAPI.
 
-## Contenido
+## Estructura
 
-- Perfil profesional de la doctora y servicios.
-- Horario de atención: martes a sábado, de 7:00 a. m. a 9:00 a. m.
-- Ubicación en Google Maps y perfil de Facebook.
-- Solicitud de cita por WhatsApp y llamada telefónica.
-- Botones separados para reservas de 30 y 60 minutos en Google Calendar.
-- Diseño adaptable a celular y computadora.
+- `frontend/`: interfaz para pacientes; obtiene los datos de la clínica desde la API.
+- `backend/`: API pública, configuración de la clínica y solicitud de cita por WhatsApp.
 
-## Pendiente antes de publicar
+El backend no guarda solicitudes ni información clínica. Las reservas confirmadas se gestionan en Google Calendar a través de sus páginas públicas de reserva.
 
-Completa en `js/site-config.js` la información profesional de la doctora, su formación y los servicios que ofrece. Agrega los enlaces públicos de reserva en `googleBookingUrls[30]` y `googleBookingUrls[60]` cuando existan.
+## Ejecutar en desarrollo
 
-El horario, ubicación compartida, Facebook y teléfono de citas ya están configurados. El número de WhatsApp se guarda como código de país y dígitos (El Salvador: `50373044567`).
+### Backend (PowerShell)
 
-No publiques campos de ejemplo. No agregues testimonios, credenciales, estadísticas ni servicios sin verificar.
+```powershell
+cd backend
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+Copy-Item .env.example .env
+uvicorn main:app --reload
+```
 
-## Google Calendar
+La API queda disponible en `http://localhost:8000`; su documentación interactiva está en `/docs`.
 
-Google Calendar necesita una duración por agenda. Crea dos agendas para la cuenta de la doctora: una de 30 minutos y otra de 60 minutos, ambas disponibles de martes a sábado entre las 7:00 a. m. y las 9:00 a. m. Coloca sus enlaces públicos en `googleBookingUrls[30]` y `googleBookingUrls[60]`; así aparecerán los botones para reservar. Revisa el nombre y la foto de perfil que se mostrarán en la página pública antes de compartir los enlaces.
+### Frontend
 
-Mientras se agregan los enlaces, las pacientes pueden pedir cita por WhatsApp o llamar al número configurado.
+En otra terminal:
 
-## Ejecutar localmente
+```powershell
+cd frontend
+npm install
+npm run dev
+```
 
-Abre `index.html` en un navegador. El sitio no requiere dependencias ni compilación.
+Vite mostrará la URL local, normalmente `http://localhost:5173`.
 
-## Publicar con GitHub Pages
+## Configuración
 
-Después de completar y verificar los datos de la doctora, ve a **Settings → Pages** en el repositorio y selecciona la rama `main` con la carpeta `/ (root)`. GitHub mostrará la dirección pública cuando termine la publicación.
+Edita `backend/.env` para establecer el perfil profesional verificado, servicios y enlaces públicos de reserva `GOOGLE_BOOKING_URL_30` y `GOOGLE_BOOKING_URL_60`. Configura el origen del frontend en `CORS_ORIGINS` al desplegar. Nunca coloques credenciales privadas de Google en el frontend.
+
+El formulario solo solicita nombre y horario preferido; la paciente continúa la solicitud en WhatsApp y la clínica confirma. No agregues campos para síntomas, diagnósticos u otros datos clínicos.
