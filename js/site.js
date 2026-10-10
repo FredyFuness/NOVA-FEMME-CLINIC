@@ -20,6 +20,12 @@
       link.hidden = false;
     }
   });
+  document.querySelectorAll("[data-phone-link]").forEach((link) => {
+    if (cfg.phoneNumber) {
+      link.href = `tel:${cfg.phoneNumber}`;
+      link.hidden = false;
+    }
+  });
   document.title = `${cfg.doctorName || "Consulta médica"} | ${cfg.specialty || "Atención médica"}`;
   document.getElementById("year").textContent = new Date().getFullYear();
 
