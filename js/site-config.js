@@ -7,7 +7,8 @@ window.CLINIC_SITE = {
   location: "Consulta presencial",
   locationUrl: "https://maps.app.goo.gl/6HxqBgd3qN18GPEb9",
   hours: "Martes a sábado, de 7:00 a. m. a 9:00 a. m.",
-  whatsappNumber: "", // International digits only, e.g. 50370000000
+  whatsappNumber: "50373044567", // El Salvador country code +503 plus local number
+  facebookUrl: "https://www.facebook.com/profile.php?id=100094533859955",
   googleBookingUrls: {
     30: "", // URL pública de la agenda de 30 minutos
     60: ""  // URL pública de la agenda de 60 minutos
