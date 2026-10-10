@@ -1,6 +1,6 @@
 # NOVA FEMME CLINIC
 
-Sitio web estático en español para presentar la clínica de ginecología y facilitar las solicitudes de cita.
+Sitio web estático en español para NOVA FEMME CLINIC, con una estructura médica clásica, contenido para salud de la mujer y vías directas para solicitar cita.
 
 ## Contenido
 
