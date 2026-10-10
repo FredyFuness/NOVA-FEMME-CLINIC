@@ -68,7 +68,7 @@
             <p class="profile-lead">Conoce su formación, experiencia y enfoque de atención. Esta sección se completará con información verificada por la doctora.</p>
             <div class="profile-details">
             <div><span class="detail-icon">✳</span><p><b>Formación</b><br /><span data-education>Información profesional por agregar</span></p></div>
-              <div><span class="detail-icon">⌖</span><p><b>Consulta</b><br /><span data-location>Agregar ciudad o ubicación</span></p></div>
+              <div><span class="detail-icon">⌖</span><p><b>Consulta</b><br /><a data-location-link hidden target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a><span data-location>Ubicación por confirmar</span></p></div>
             </div>
             <a class="text-link link-accent" href="#citas">Hablemos de tu consulta <span aria-hidden="true">↗</span></a>
           </div>
@@ -89,7 +89,7 @@
         <div class="booking-grid">
           <div class="booking-copy"><span class="eyebrow">Da el primer paso</span><h2>Hagamos espacio<br />para <em>cuidarte.</em></h2><p>Cuéntanos qué horario te funciona mejor. La doctora te responderá para confirmar la disponibilidad de tu cita.</p>
             <div class="booking-contact"><span class="contact-icon">◷</span><div><b>Horario de atención</b><span data-hours>Agregar días y horario de consulta</span></div></div>
-            <div class="booking-contact"><span class="contact-icon">⌖</span><div><b>Ubicación</b><span data-location>Agregar ciudad o ubicación</span></div></div>
+            <div class="booking-contact"><span class="contact-icon">⌖</span><div><b>Ubicación</b><a data-location-link hidden target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a><span data-location>Ubicación por confirmar</span></div></div>
           </div>
           <form class="booking-form" id="booking-form">
             <div class="form-title"><span>Solicitud de cita</span><span class="form-step">01 / 01</span></div>
@@ -97,7 +97,11 @@
             <div class="form-row"><div><label for="preferred-date">Fecha preferida</label><input id="preferred-date" name="date" type="date" /></div><div><label for="preferred-time">Hora preferida</label><input id="preferred-time" name="time" type="time" /></div></div>
             <p class="privacy-note"><span aria-hidden="true">◉</span> No incluyas síntomas, diagnósticos ni información médica en este formulario.</p>
             <button class="button button-dark button-full" type="submit">Continuar por WhatsApp <span aria-hidden="true">↗</span></button>
-            <a class="button button-calendar button-full" id="calendar-booking" href="#" hidden>Ver horarios en Google Calendar <span aria-hidden="true">↗</span></a>
+            <div class="calendar-booking-options" id="calendar-booking-options" hidden>
+              <p>Elige la duración de tu cita:</p>
+              <a class="button button-calendar button-full" id="calendar-booking-30" href="#" hidden>Cita de 30 minutos <span aria-hidden="true">↗</span></a>
+              <a class="button button-calendar button-full" id="calendar-booking-60" href="#" hidden>Cita de 60 minutos <span aria-hidden="true">↗</span></a>
+            </div>
             <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
             <p class="form-foot">Tu solicitud no queda confirmada hasta recibir respuesta.</p>
           </form>
