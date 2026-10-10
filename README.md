@@ -1,32 +1,29 @@
 # NOVA FEMME CLINIC
 
-Sitio web estático para presentar la clínica de ginecología y ayudar a solicitar citas.
+Sitio web estático en español para presentar la clínica de ginecología y facilitar las solicitudes de cita.
 
 ## Contenido
 
-- Perfil profesional de la doctora y ubicación.
-- Sección editable para servicios disponibles.
-- Formulario breve que prepara un mensaje de WhatsApp con nombre y horario preferido.
-- Botones para reservar en las páginas públicas de Google Calendar para citas de 30 y 60 minutos.
+- Perfil profesional de la doctora y servicios.
+- Horario de atención: martes a sábado, de 7:00 a. m. a 9:00 a. m.
+- Ubicación en Google Maps y perfil de Facebook.
+- Solicitud de cita por WhatsApp y llamada telefónica.
+- Botones separados para reservas de 30 y 60 minutos en Google Calendar.
 - Diseño adaptable a celular y computadora.
 
-## Datos por completar antes de publicar
+## Pendiente antes de publicar
 
-Edita `js/site-config.js` con información confirmada por la doctora:
+Completa en `js/site-config.js` la información profesional de la doctora, su formación y los servicios que ofrece. Agrega los enlaces públicos de reserva en `googleBookingUrls[30]` y `googleBookingUrls[60]` cuando existan.
 
-- Nombre profesional y formación.
-- Nombre profesional y formación (por completar).
-- Número de WhatsApp en formato internacional, solo dígitos. El número y teléfono de citas ya están configurados.
-- Servicios que realmente ofrece.
-- Enlaces de reserva de 30 y 60 minutos en `googleBookingUrls`.
+El horario, ubicación compartida, Facebook y teléfono de citas ya están configurados. El número de WhatsApp se guarda como código de país y dígitos (El Salvador: `50373044567`).
 
-La página no debe publicarse con los campos de ejemplo. No agregues testimonios, credenciales, estadísticas ni servicios sin verificación.
+No publiques campos de ejemplo. No agregues testimonios, credenciales, estadísticas ni servicios sin verificar.
 
 ## Google Calendar
 
-La doctora puede crear dos agendas de citas desde Google Calendar: una de 30 minutos y otra de 60 minutos, ambas con disponibilidad de martes a sábado de 7:00 a. m. a 9:00 a. m. Al colocar sus enlaces públicos en `googleBookingUrls[30]` y `googleBookingUrls[60]`, aparecerán los botones correspondientes y las pacientes podrán reservar un horario disponible. El enlace de reservas es público; revisa el nombre y la foto de perfil que muestra la cuenta antes de compartirlo.
+Google Calendar necesita una duración por agenda. Crea dos agendas para la cuenta de la doctora: una de 30 minutos y otra de 60 minutos, ambas disponibles de martes a sábado entre las 7:00 a. m. y las 9:00 a. m. Coloca sus enlaces públicos en `googleBookingUrls[30]` y `googleBookingUrls[60]`; así aparecerán los botones para reservar. Revisa el nombre y la foto de perfil que se mostrarán en la página pública antes de compartir los enlaces.
 
-Los enlaces de Google Calendar aún están pendientes. Mientras se agregan, las pacientes pueden solicitar su cita por WhatsApp o llamar al teléfono configurado. El sitio también enlaza la ubicación de Google Maps y el perfil de Facebook.
+Mientras se agregan los enlaces, las pacientes pueden pedir cita por WhatsApp o llamar al número configurado.
 
 ## Ejecutar localmente
 
@@ -34,4 +31,4 @@ Abre `index.html` en un navegador. El sitio no requiere dependencias ni compilac
 
 ## Publicar con GitHub Pages
 
-Después de completar los datos de la doctora, ve a **Settings → Pages** en el repositorio y selecciona la rama `main` con la carpeta `/ (root)`. GitHub mostrará la dirección pública cuando termine la publicación.
+Después de completar y verificar los datos de la doctora, ve a **Settings → Pages** en el repositorio y selecciona la rama `main` con la carpeta `/ (root)`. GitHub mostrará la dirección pública cuando termine la publicación.
