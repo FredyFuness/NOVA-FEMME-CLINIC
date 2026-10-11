@@ -24,7 +24,6 @@ El botón abre WhatsApp con un mensaje preparado. La paciente completa su nombre
 
 La página no muestra espacios disponibles, no consulta calendarios y no registra reservas. La sección «Coordinar otro horario» permite consultar una excepción. No incluyas síntomas, diagnósticos ni información clínica.
 
-El enlace de Google Calendar fue retirado del sitio. La agenda de reservas creada previamente en Google sigue existiendo de forma independiente: para impedir reservas desde enlaces ya compartidos, elimina esa agenda de citas desde Google Calendar. Retirar el enlace del sitio no la desactiva.
 
 Las funciones y pruebas del formulario anterior se conservan como referencia; no participan en el flujo activo.
 
@@ -52,7 +51,7 @@ La compilación genera `frontend/dist/`. La vista previa sirve esa carpeta local
 
 ## Publicación futura en alojamiento estático
 
-Esta preparación no publica nada. Cuando se autorice la publicación, un alojamiento como Cloudflare Pages puede compilar el repositorio con estos valores:
+Esta preparación no publica nada. Para un despliegue sin costo, usa **Cloudflare Pages Free**, con un subdominio `*.pages.dev`. No compres un dominio ni actives planes, complementos o pruebas de pago. El sitio funciona solo con archivos estáticos: no necesita Functions, Workers, bases de datos ni API de WhatsApp. Configuración para conectar el repositorio:
 
 - Directorio raíz: `frontend`
 - Comando de compilación: `npm run build`
@@ -60,6 +59,12 @@ Esta preparación no publica nada. Cuando se autorice la publicación, un alojam
 - Variables de API: ninguna; no usa `VITE_API_URL`.
 
 También puede alojarse únicamente el contenido de `frontend/dist/`. No subas `backend/`, archivos `.env` ni `node_modules` al sitio público.
+
+Para carga directa, crea un proyecto de Pages con **Direct Upload** y sube la carpeta `frontend/dist`, incluyendo `_headers`. No uses el servidor de desarrollo ni `npm run preview` como alojamiento público. La dirección `pages.dev` se asigna al publicar y no requiere registrar un dominio.
+
+Referencias oficiales: [configuración de compilación](https://developers.cloudflare.com/pages/configuration/build-configuration/), [precios de recursos estáticos](https://developers.cloudflare.com/pages/functions/pricing/) y [límites gratuitos](https://developers.cloudflare.com/pages/platform/limits/). El plan Free permite hasta 20 000 archivos, con un máximo de 25 MiB por archivo; este sitio está muy por debajo. No es una garantía sobre cambios futuros en las condiciones del proveedor.
+
+Después de publicar, comprueba HTTPS, cabeceras de seguridad, imagen de la doctora y apertura de WhatsApp desde un teléfono. Mantén el proyecto en Free y no habilites servicios de pago.
 
 Antes de publicar: completar el perfil profesional, comprobar los datos de contacto, probar en móvil y definir la URL pública. Después se podrá crear el sitemap con esa URL y registrar el sitio en Google Search Console y en el Perfil de Empresa. No hay una URL pública configurada todavía.
 

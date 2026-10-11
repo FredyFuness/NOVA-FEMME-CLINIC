@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test src/appointments.test.js",
+    "pretest:e2e": "npm run build",
     "test:e2e": "playwright test",
     "dev": "vite",
     "build": "vite build",

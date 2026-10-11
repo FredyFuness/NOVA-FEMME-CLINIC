@@ -54,10 +54,6 @@ def clinic_data() -> dict:
             "FACEBOOK_URL",
             "https://www.facebook.com/profile.php?id=100094533859955",
         ),
-        "googleBookingUrls": {
-            "30": setting("GOOGLE_BOOKING_URL_30"),
-            "60": setting("GOOGLE_BOOKING_URL_60"),
-        },
         "appointmentSchedule": {
             "weekdays": [(day + 1) % 7 for day in APPOINTMENT_DAYS],
             "startTime": OPENING_TIME.strftime("%H:%M"),
