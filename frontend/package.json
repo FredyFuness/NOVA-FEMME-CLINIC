@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test src/appointments.test.js",
+    "test:e2e": "playwright test",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -14,6 +15,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@vitejs/plugin-react": "^4.4.1",
     "vite": "^6.1.0"
   }
